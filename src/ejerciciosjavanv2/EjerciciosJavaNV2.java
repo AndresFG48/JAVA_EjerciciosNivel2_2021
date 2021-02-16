@@ -6,21 +6,31 @@
 package ejerciciosjavanv2;
 
 /**
+ * Ejercicos Java NV2. EJER 1 Escalera de palabras.
  *
  * @author Andrés
  */
 public class EjerciciosJavaNV2 {
 
     public boolean esEscaleraDePalabras(char[][] listaPalabras) {
-        for (int i = 0; i < listaPalabras [0].length - 1; i++) {
-            if (listaPalabras[0][0] == listaPalabras[i + 1][0]) {
-                System.out.println("SON IGUALES");
-            }
-            
-            else {
-                System.out.println("SON DISTINTOS");
+        
+        int contador1 = 0;
+        for (int i = 0; i < listaPalabras.length - 1; i++) { //El bucle que procesa todas las filas.
+            contador1 = 0; //Inicializa el contador de diferencias antes de empezar el bucle interno.
+            for (int j = 0; j < listaPalabras[0].length; j++) {
+                if (listaPalabras[i][j] == listaPalabras[i + 1][j]) {
+                    System.out.println("SON IGUALES");
+                } else {
+                    System.out.println("SON DISTINTOS");
+                    contador1++; //Las letras son diferentes.
+                }
             }
 
+            System.out.println("" + contador1);
+            if (contador1 != 1) {
+                return false; //Si en algun momento las palabras se diferencian en mas de un 
+                // carecter, devuelve false.
+            }
         }
 
         return true;
