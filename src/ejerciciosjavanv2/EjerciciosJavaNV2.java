@@ -13,7 +13,7 @@ package ejerciciosjavanv2;
 public class EjerciciosJavaNV2 {
 
     public boolean esEscaleraDePalabras(char[][] listaPalabras) {
-        
+
         int contador1 = 0;
         for (int i = 0; i < listaPalabras.length - 1; i++) { //El bucle que procesa todas las filas.
             contador1 = 0; //Inicializa el contador de diferencias antes de empezar el bucle interno.
@@ -35,6 +35,33 @@ public class EjerciciosJavaNV2 {
 
         return true;
     }
+    
+     public int costeErroresADN (String uno, String dos){
+         
+        //primera versión, usando los dos Strings que me pasan
+        int coste = 0;  // coste de los errores
+        for (int i=0; i < uno.length(); i++){
+            if (uno.charAt(i) == '-'){
+                coste = coste + 2; // coste += 2;
+            }
+            
+            if (uno.charAt(i) == 'G'){
+                if (dos.charAt(i) != 'C'){
+                    if (dos.charAt(i) == '-'){
+                        coste = coste + 2;  // coste += 2;
+                    }
+                    
+                    else{
+                        coste++;
+                    }
+                }
+            }
+            
+            //siguiente if
+        }
+
+        return coste;
+    }
 
     /**
      * @param args the command line arguments
@@ -50,6 +77,7 @@ public class EjerciciosJavaNV2 {
             {'G', 'A', 'M', 'O'},
             {'G', 'A', 'T', 'O'},
             {'M', 'A', 'T', 'O'},};
+
         System.out.println(ejercicio.esEscaleraDePalabras(listaPalabras));
     }
 
