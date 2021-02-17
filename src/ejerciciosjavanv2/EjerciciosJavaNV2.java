@@ -6,12 +6,16 @@
 package ejerciciosjavanv2;
 
 /**
- * Ejercicos Java NV2. EJER 1 Escalera de palabras.
- *
  * @author Andrés
  */
 public class EjerciciosJavaNV2 {
 
+    /**
+     * Ejercicos Java NV2. EJER 1 Escalera de palabras.
+     *
+     * @param listaPalabras
+     * @return
+     */
     public boolean esEscaleraDePalabras(char[][] listaPalabras) {
 
         int contador1 = 0;
@@ -35,28 +39,33 @@ public class EjerciciosJavaNV2 {
 
         return true;
     }
-    
-     public int costeErroresADN (String uno, String dos){
-         
+
+    /**
+     * Ejercicos Java NV2. EJER 2 ADN
+     *
+     * @param uno
+     * @param dos
+     * @return
+     */
+    public int costeErroresADN(String uno, String dos) {
+
         //primera versión, usando los dos Strings que me pasan
         int coste = 0;  // coste de los errores
-        for (int i=0; i < uno.length(); i++){
-            if (uno.charAt(i) == '-'){
+        for (int i = 0; i < uno.length(); i++) {
+            if (uno.charAt(i) == '-') {
                 coste = coste + 2; // coste += 2;
             }
-            
-            if (uno.charAt(i) == 'G'){
-                if (dos.charAt(i) != 'C'){
-                    if (dos.charAt(i) == '-'){
+
+            if (uno.charAt(i) == 'G') {
+                if (dos.charAt(i) != 'C') {
+                    if (dos.charAt(i) == '-') {
                         coste = coste + 2;  // coste += 2;
-                    }
-                    
-                    else{
+                    } else {
                         coste++;
                     }
                 }
             }
-            
+
             //siguiente if
         }
 
