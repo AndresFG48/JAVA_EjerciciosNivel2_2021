@@ -52,17 +52,23 @@ public class EjerciciosJavaNV2 {
         //primera versión, usando los dos Strings que me pasan
         int coste = 0;  // coste de los errores
         for (int i = 0; i < uno.length(); i++) {
-            if (uno.charAt(i) == '-') {
+            if (uno.charAt(i) == '-' || dos.charAt(i) == '-') {
                 coste = coste + 2; // coste += 2;
-            }
+            } else {
+                if (uno.charAt(i) == 'G' && dos.charAt(i) != 'C') {
+                    coste++;
+                }
 
-            if (uno.charAt(i) == 'G') {
-                if (dos.charAt(i) != 'C') {
-                    if (dos.charAt(i) == '-') {
-                        coste = coste + 2;  // coste += 2;
-                    } else {
-                        coste++;
-                    }
+                if (uno.charAt(i) == 'C' && dos.charAt(i) != 'G') {
+                    coste++;
+                }
+
+                if (uno.charAt(i) == 'A' && dos.charAt(i) != 'T') {
+                    coste++;
+                }
+
+                if (uno.charAt(i) == 'T' && dos.charAt(i) != 'A') {
+                    coste++;
                 }
             }
 
@@ -70,6 +76,33 @@ public class EjerciciosJavaNV2 {
         }
 
         return coste;
+    }
+
+    /**
+     * Encuentra el numero que esta duplicado en una lista de ints usando el algoritmo de floyd.
+     * @param listaNumeros
+     * @return 
+     */
+    public int finDuplicate(int[] listaNumeros) {
+        int tortuga = listaNumeros[0];
+        int liebre = listaNumeros[0];
+        boolean iguales = false;
+        while (!iguales) {
+            tortuga = listaNumeros[tortuga];
+            liebre = listaNumeros[listaNumeros[liebre]];
+            if (tortuga == liebre) {
+                iguales = true;
+            }
+        }
+
+        int auxiliar1 = listaNumeros[0];
+        int auxiliar2 = tortuga;
+        while (auxiliar1 != auxiliar2) {
+            auxiliar1 = listaNumeros[auxiliar1];
+            auxiliar2 = listaNumeros[auxiliar2];
+        }
+        
+        return auxiliar1;
     }
 
     /**
