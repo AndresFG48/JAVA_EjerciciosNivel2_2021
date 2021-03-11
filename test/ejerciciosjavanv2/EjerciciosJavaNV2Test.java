@@ -107,11 +107,9 @@ public class EjerciciosJavaNV2Test {
         String str1 = "";
         String str2 = "";
         EjerciciosJavaNV2 instance = new EjerciciosJavaNV2();
-        int expResult = 0;
-        int result = instance.StrStr(str1, str2);
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+
+        assertEquals(-1, instance.StrStr("Mumn", "mun"));
+
     }
 
     /**
@@ -124,6 +122,22 @@ public class EjerciciosJavaNV2Test {
         EjerciciosJavaNV2.main(args);
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
+    }
+    
+      /**
+     * Test of calculadoraRPN method, of class EjerciciosNivel02_2021.
+     */
+    @Test
+    public void testCalculadoraRPN() {
+        System.out.println("calculadoraRPN");
+
+        EjerciciosJavaNV2 instance = new EjerciciosJavaNV2();
+
+        assertEquals("35.0", instance.calculadoraRPN (new String [] {"3", "2" ,"+", "7", "*"}));
+        assertEquals("49.0", instance.calculadoraRPN (new String [] {"5", "2" ,"+", "7", "*"}));
+        assertEquals("2.5", instance.calculadoraRPN (new String [] {"4", "2" ,"/", "5", "*"}));
+        assertEquals("ERROR", instance.calculadoraRPN (new String [] {"0", "4" ,"/", "5", "*"}));
+        assertEquals("ERROR", instance.calculadoraRPN (new String [] {"2", "/" ,"4", "5", "*"}));
     }
     
 }
